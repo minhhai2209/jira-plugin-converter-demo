@@ -1,0 +1,39 @@
+# Maven
+/target
+
+# IntelliJ
+/.idea
+/src/main/webapp/WEB-INF/classes
+/src/main/webapp/WEB-INF/lib
+*.iml
+
+# Eclipse project files
+/.settings
+/.classpath
+/.project
+/.springBeans
+/.externalToolBuilders
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Deploy config
+/src/main/resources/configuration/common/override.properties
+
+# Log
+/logs
+
+# JRebel
+src/main/resources/rebel.xml
+sonar-project.properties
+.sonar
+.sonartmp
+
+/liquibase-dry-run-output.sql
+/Attachments

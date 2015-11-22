@@ -1,0 +1,92 @@
+{
+    "apiVersion": 1,
+    "baseUrl": "http://localhost:7777",
+    "authentication": {
+        "type": "jwt"
+    },
+    "vendor": {
+        "name": "Hello world",
+        "url": "http://localhost:7777"
+    },
+    "description": "Hello world",
+    "name": "Hello world connector",
+    "key": "hw",
+    "lifecycle": {
+        "installed": "/hw/installed",
+        "uninstalled": "/hw/uninstalled",
+        "enabled": "/hw/enabled",
+        "disabled": "/hw/disabled"
+    },
+    "modules": {
+        "generalPages": [{
+            "url": "/hw/general-page-0",
+            "location": "hello-world-dropdown/hello-world-dropdown-section",
+            "key": "hw-gp-0",
+            "name": {
+                "value": "Menu 1"
+            }
+        }, {
+            "url": "/hw/general-page-1",
+            "key": "hw-gp-1",
+            "name": {
+                "value": "Menu 2"
+            },
+            "location": "hello-world-dropdown/hello-world-dropdown-section"
+        }],
+        "adminPages": [{
+            "url": "/hw/admin-page-0",
+            "location": "top_system_section/hw-setting-section",
+            "key": "hw-ap-0",
+            "name": {
+                "value": "Setting 1"
+            }
+        }],
+        "webItems": [{
+            "name": {
+                "value": "Hello World"
+            },
+            "location": "system.top.navigation.bar",
+            "url": "/hw/web-item-2",
+            "key": "hello-world-dropdown"
+        }],
+        "webPanels": [{
+            "url": "/hw/web-panel-0",
+            "location": "atl.jira.view.issue.left.context",
+            "layout": {
+                "width": "100%",
+                "height": "100%"
+            },
+            "weight": 250,
+            "key": "hw-we-0",
+            "name": {
+                "value": "Panel 0"
+            }
+        }, {
+            "url": "/hw/web-panel-1",
+            "location": "atl.jira.view.issue.right.context",
+            "layout": {
+                "width": "100%",
+                "height": "100%"
+            },
+            "weight": 250,
+            "key": "hw-wp-1",
+            "name": {
+                "value": "Right panel"
+            }
+        }],
+        "webSections": [{
+            "location": "top_system_section",
+            "weight": 50,
+            "key": "hw-setting-section",
+            "name": {
+                "value": "HW SETTINGS"
+            }
+        }, {
+            "name": {
+                "value": "General"
+            },
+            "location": "hello-world-dropdown",
+            "key": "hello-world-dropdown-section"
+        }]
+    }
+}
