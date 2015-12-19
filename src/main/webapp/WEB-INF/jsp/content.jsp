@@ -3,66 +3,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!--   <script src="/jquery-2.1.4.min.js" type="text/javascript"></script> -->
-  <script src="${scriptUrl}" type="text/javascript"></script>
-  
-  <link rel="stylesheet" href="//aui-cdn.atlassian.com/aui-adg/5.9.0/css/aui.css" media="all">
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-  <script src="//aui-cdn.atlassian.com/aui-adg/5.9.0/js/aui.js"></script>
-
+  <link rel="stylesheet" href="/static/atlassian-aui-adg-dist-50245526295e/aui/css/aui.min.css" media="all">
   <style type="text/css">
     body {
       background: #FFFFFF;
-    }
-    header {
-      padding: 20px;
+      word-wrap: break-word;
     }
   </style>
+  
+  <script src="/static/jquery-2.1.4.min.js" type="text/javascript"></script>
+  <script src="${scriptUrl}" type="text/javascript"></script>
+  <script src="/static/atlassian-aui-adg-dist-50245526295e/aui/js/aui.min.js" type="text/javascript"></script>
 </head>
-<body class="ac-content">
-Showing content from:
-<div id="location"></div>
-<div>
-    <form class="aui">
-      <c:forEach items="${parameters}" var="p">
-        <div class="field-group">
-          <label><c:out value="${p.key}" /></label>
-          <input disabled class="text long-field" type="text"   value="${p.value}" />
-        </div>
-      </c:forEach>
-    </form>
-  </div>
-<script>
-  $(function() {
-    $('#location').text(window.location);
-    var i = setInterval(
-      function() {
-        if (window.AP) {
-          clearInterval(i);
-          
-          setTimeout(
-            function() {
-              AP.require("messages", function(messages) {
-                //create a message
-                var message = messages.info('Message triggered by plugin', 'This is message triggered by addon using AP.messages');
-              });
-              
-//               AP.require('dialog', function(dialog){
-//                 dialog.create({
-//                   key: 'hw-general-page-0',
-//                   width: '500px',
-//                   height: '200px',
-//                   chrome: true
-//                 });
-//               });
-            }, 
-            100
-          );
-        }
-      },
-      100
-    );
-  });
-</script>
+<body>
+  <section class="ac-content">
+    <div class="aui-group">
+      <div>
+        <form class="aui">
+          <div class="field-group">
+            <label>URL</label>
+            <div id="location" class="textarea long-field"></div>
+          </div>
+          <c:forEach items="${parameters}" var="p">
+            <div class="field-group">
+              <label><c:out value="${p.key}" /></label>
+              <div class="textarea long-field">${empty p.value ? '&nbsp' : p.value}</div>
+            </div>
+          </c:forEach>
+        </form>
+      </div>
+    </div>
+  </section>
+  <script>
+    $(function() {
+      $('#location').text(window.location);
+      var i = setInterval(
+        function() {
+          if (window.AP) {
+            clearInterval(i);
+          }
+        },
+        100
+      );
+    });
+  </script>
 </body>
 </html>

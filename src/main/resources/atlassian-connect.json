@@ -12,21 +12,21 @@
     "name": "Hello world connector",
     "key": "hw",
     "lifecycle": {
-        "installed": "/hw/installed",
-        "uninstalled": "/hw/uninstalled",
-        "enabled": "/hw/enabled",
-        "disabled": "/hw/disabled"
+        "installed": "/installed",
+        "uninstalled": "/uninstalled",
+        "enabled": "/enabled",
+        "disabled": "/disabled"
     },
     "modules": {
         "generalPages": [{
-            "url": "/hw/general-page-0",
+            "url": "/general-page-0",
             "location": "hello-world-dropdown/hello-world-dropdown-section",
             "key": "hw-gp-0",
             "name": {
                 "value": "Menu 1"
             }
         }, {
-            "url": "/hw/general-page-1",
+            "url": "/general-page-1",
             "key": "hw-gp-1",
             "name": {
                 "value": "Menu 2"
@@ -34,7 +34,7 @@
             "location": "hello-world-dropdown/hello-world-dropdown-section"
         }],
         "adminPages": [{
-            "url": "/hw/admin-page-0",
+            "url": "/admin-page-0",
             "location": "top_system_section/hw-setting-section",
             "key": "hw-ap-0",
             "name": {
@@ -46,11 +46,11 @@
                 "value": "Hello World"
             },
             "location": "system.top.navigation.bar",
-            "url": "/hw/web-item-2",
+            "url": "/web-item-2",
             "key": "hello-world-dropdown"
         }],
         "webPanels": [{
-            "url": "/hw/web-panel-0",
+            "url": "/web-panel-0",
             "location": "atl.jira.view.issue.left.context",
             "layout": {
                 "width": "100%",
@@ -60,18 +60,6 @@
             "key": "hw-we-0",
             "name": {
                 "value": "Panel 0"
-            }
-        }, {
-            "url": "/hw/web-panel-1",
-            "location": "atl.jira.view.issue.right.context",
-            "layout": {
-                "width": "100%",
-                "height": "100%"
-            },
-            "weight": 250,
-            "key": "hw-wp-1",
-            "name": {
-                "value": "Right panel"
             }
         }],
         "webSections": [{
