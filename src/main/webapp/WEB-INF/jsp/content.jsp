@@ -1,3 +1,4 @@
+<%@ page session="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
@@ -10,7 +11,8 @@
       word-wrap: break-word;
     }
   </style>
-  
+  <link rel="stylesheet" href="${cssUrl}" media="all">
+
   <script src="/static/jquery-2.1.4.min.js" type="text/javascript"></script>
   <script src="${scriptUrl}" type="text/javascript"></script>
   <script src="/static/atlassian-aui-adg-dist-50245526295e/aui/js/aui.min.js" type="text/javascript"></script>
@@ -18,6 +20,9 @@
 <body>
   <section class="ac-content">
     <div class="aui-group">
+      <div>
+        <button id="action" type="button">Action!</button>
+      </div>
       <div>
         <form class="aui">
           <div class="field-group">
@@ -41,6 +46,29 @@
         function() {
           if (window.AP) {
             clearInterval(i);
+            $('#action').click(function() {
+              AP.require('dialog', function(dialog) {
+                dialog.create({
+                  key: 'notify-zendesk-dialog',
+                  chrome: true
+                });
+              });
+            });
+
+            AP.require(["jira"], function(jira) {
+              // When the configuration is saved, this method is called. Return the values for your input elements.
+              jira.WorkflowConfiguration.onSave(function() {
+                var config = {
+                  "key": "val"
+                };
+                return JSON.stringify(config);
+              });
+
+              // Validate any appropriate input and return true/false
+              jira.WorkflowConfiguration.onSaveValidation(function() {
+                return true;
+              });
+            });
           }
         },
         100
